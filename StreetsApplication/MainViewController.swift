@@ -41,6 +41,7 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate {
     var userViewItemBehavior: UIDynamicItemBehavior!
     var centerDialogView: CGPoint!
     var centerUserView: CGPoint!
+    var visualEffectView: UIVisualEffectView!
     
     var imageData = changeDataForImageView()
     var countImage = 1
@@ -77,7 +78,7 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate {
         }
         self.animator.addBehavior(self.snapBehaviorUserView)
         self.animator.removeBehavior(self.snapBehaviorDialogView)
-        self.refreshImageView()
+        self.refreshCountImage()
 }
     
     func addAnimationToAnimatableObject(animateView:Animatable, nameAnimation:AnimationType.RawValue,curveAnimation:AnimationCurveType.RawValue, damping:CGFloat,duration:CGFloat,force:CGFloat,delay:CGFloat) {
@@ -198,6 +199,7 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate {
         let visualEffectView:UIVisualEffectView = UIVisualEffectView(effect: blurEffect)
         visualEffectView.frame = view.bounds
         view.insertSubview(visualEffectView, at: 0)
+        self.visualEffectView = visualEffectView
     }
     
     func addAnimationToObject(view:Animatable, duration:CFTimeInterval, delay:Float, options:AnimationCurveType.RawValue,scaleX:CGFloat,scaleY:CGFloat) {
@@ -227,10 +229,19 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate {
                 self.topBarImageView.image = nil
                 self.bottomBarImageView.image = nil
                 self.userButtonImageView.image = nil
+                self.removeAllVusualEffectFromView(firstView: self.topBarImageView, secondView: self.bottomBarImageView, thirdView: self.userButtonImageView)
+                self.makeBlurEffectToView(view: self.topBarImageView, effectStule: UIBlurEffectStyle.light)
+                self.makeBlurEffectToView(view: self.bottomBarImageView, effectStule: UIBlurEffectStyle.light)
+                self.makeBlurEffectToView(view: self.userButtonImageView, effectStule: UIBlurEffectStyle.light)
+                self.topBarImageView.layer.cornerRadius = 12
+                self.bottomBarImageView.layer.cornerRadius = 12
+                self.userButtonImageView.layer.cornerRadius = 30
+        
             }else {
                 self.topBarImageView.image = UIImage(named:"top board Home")
                 self.bottomBarImageView.image = UIImage(named:"bottom board Home")
                 self.userButtonImageView.image = UIImage(named:"Button Home")
+                self.removeAllVusualEffectFromView(firstView: self.topBarImageView, secondView: self.bottomBarImageView, thirdView: self.userButtonImageView)
             }
             self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
             self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -239,7 +250,19 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate {
         })
         self.countImage += 1
     }
-    func refreshImageView() {
+    func removeAllVusualEffectFromView(firstView:UIView,secondView:UIView, thirdView:UIView)  {
+        var viewsArray = [UIView]()
+        viewsArray.append(contentsOf: firstView.subviews)
+        viewsArray.append(contentsOf: secondView.subviews)
+        viewsArray.append(contentsOf: thirdView.subviews)
+        for subview in viewsArray {
+            if subview is UIVisualEffectView {
+                subview.removeFromSuperview()
+            }
+        }
+    }
+
+    func refreshCountImage() {
         if self.countImage > 2 {
             self.countImage = 0
         }
