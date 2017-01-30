@@ -36,9 +36,5 @@ import UIKit
     var layer: CALayer {get}
     
     
-   // var timingFunction: CAMediaTimingFunction {get set}
-   // var keyPath: String {get set}
-   // var value: [Any] {get set}
-    
     func animateObject()
 }
