@@ -61,14 +61,15 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate {
     }
     
     @IBAction func actionShareButton(_ sender: Any) {
+        
         if sharePopoverView.isHidden {
             
             self.addAnimationToAnimatableObject(animateView: shareButton, nameAnimation: AnimationType.CAShakeX.rawValue, curveAnimation: AnimationCurveType.EaseInOutQuint.rawValue, damping: 0.9, duration: 0.5, force: 1, delay: 0)
             
             self.addAnimationToAnimatableObject(animateView: twitterButton, nameAnimation: AnimationType.SlideUp.rawValue, curveAnimation: AnimationCurveType.EaseInOutQuint.rawValue, damping: 0.9, duration: 1, force: 1, delay: 0.4)
             self.addAnimationToAnimatableObject(animateView: faceBookButton, nameAnimation: AnimationType.SlideUp.rawValue, curveAnimation: AnimationCurveType.EaseInOutQuint.rawValue, damping: 0.9, duration: 1, force: 1, delay: 0.5)
-             self.addAnimationToAnimatableObject(animateView: twittterLabel, nameAnimation: AnimationType.SlideUp.rawValue, curveAnimation: AnimationCurveType.EaseInOutQuint.rawValue, damping: 0.9, duration: 1, force: 1, delay: 0.6)
-             self.addAnimationToAnimatableObject(animateView: faceBookLabel, nameAnimation: AnimationType.SlideUp.rawValue, curveAnimation: AnimationCurveType.EaseInOutQuint.rawValue, damping: 0.9, duration: 1, force: 1, delay: 0.7)
+            self.addAnimationToAnimatableObject(animateView: twittterLabel, nameAnimation: AnimationType.SlideUp.rawValue, curveAnimation: AnimationCurveType.EaseInOutQuint.rawValue, damping: 0.9, duration: 1, force: 1, delay: 0.6)
+            self.addAnimationToAnimatableObject(animateView: faceBookLabel, nameAnimation: AnimationType.SlideUp.rawValue, curveAnimation: AnimationCurveType.EaseInOutQuint.rawValue, damping: 0.9, duration: 1, force: 1, delay: 0.7)
 
             sharePopoverView.isHidden = false
             self.addAnimationToAnimatableObject(animateView: sharePopoverView, nameAnimation: AnimationType.ZoomIn.rawValue, curveAnimation: AnimationCurveType.EasyInEasyOut.rawValue, damping: 1, duration: 1, force: 1, delay: 0)
@@ -77,6 +78,7 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate {
         self.addAnimationToObject(view: dialogView, duration: 1, delay: 0, options: AnimationCurveType.EasyInEasyOut.rawValue,scaleX: 0.8,scaleY:0.8)
         }
         self.animator.addBehavior(self.snapBehaviorUserView)
+        self.animator.removeBehavior(self.userViewItemBehavior)
         self.animator.removeBehavior(self.snapBehaviorDialogView)
         self.refreshCountImage()
 }
@@ -252,9 +254,7 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate {
     }
     func removeAllVusualEffectFromView(firstView:UIView,secondView:UIView, thirdView:UIView)  {
         var viewsArray = [UIView]()
-        viewsArray.append(contentsOf: firstView.subviews)
-        viewsArray.append(contentsOf: secondView.subviews)
-        viewsArray.append(contentsOf: thirdView.subviews)
+        viewsArray = firstView.subviews + secondView.subviews + thirdView.subviews
         for subview in viewsArray {
             if subview is UIVisualEffectView {
                 subview.removeFromSuperview()

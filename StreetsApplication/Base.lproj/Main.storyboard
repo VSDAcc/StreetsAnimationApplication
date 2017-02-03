@@ -30,9 +30,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wVh-Tw-f2W" customClass="AnimationView" customModule="StreetsApplication" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wVh-Tw-f2W" customClass="AnimationView" customModule="StreetsApplication" customModuleProvider="target">
                                 <rect key="frame" x="39" y="185" width="335" height="320"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="akb-SI-3cG">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="60"/>
@@ -93,14 +92,21 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="320" id="Uo7-Zm-Ofp"/>
+                                    <constraint firstAttribute="width" constant="335" id="vtL-yc-7Qq"/>
+                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="mhM-mm-oY9" appends="YES" id="NgY-Zc-lwk"/>
                                 </connections>
                             </view>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zwi-PQ-F72" customClass="AnimationButton" customModule="StreetsApplication" customModuleProvider="target">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zwi-PQ-F72" customClass="AnimationButton" customModule="StreetsApplication" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="Kcs-Af-mSg"/>
+                                    <constraint firstAttribute="height" constant="736" id="cdA-by-CRt"/>
+                                </constraints>
                                 <state key="normal">
                                     <color key="titleShadowColor" red="0.51326497395833337" green="0.50675455729166663" blue="0.52018229166666663" alpha="0.50762521404109584" colorSpace="calibratedRGB"/>
                                 </state>
@@ -108,9 +114,8 @@
                                     <action selector="actionMaskButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ado-eF-LVV"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gba-RM-JIC">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gba-RM-JIC">
                                 <rect key="frame" x="92" y="505" width="230" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="Button Home" translatesAutoresizingMaskIntoConstraints="NO" id="3gQ-Tp-P94">
                                         <rect key="frame" x="0.0" y="0.0" width="230" height="55"/>
@@ -208,19 +213,22 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="NJq-Vu-v5i"/>
+                                    <constraint firstAttribute="height" constant="55" id="hth-V7-DVm"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="30"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cKR-at-zYK" customClass="AnimationView" customModule="StreetsApplication" customModuleProvider="target">
+                            <view hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cKR-at-zYK" customClass="AnimationView" customModule="StreetsApplication" customModuleProvider="target">
                                 <rect key="frame" x="66" y="541" width="281" height="195"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="popover-view" translatesAutoresizingMaskIntoConstraints="NO" id="hww-EH-zly">
                                         <rect key="frame" x="0.0" y="0.0" width="281" height="195"/>
-                                        <autoresizingMask key="autoresizingMask"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FaceBook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bId-GR-ZHb" customClass="AnimationLabel" customModule="StreetsApplication" customModuleProvider="target">
@@ -260,12 +268,26 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="195" id="27g-HH-7hJ"/>
+                                    <constraint firstAttribute="width" constant="281" id="cPJ-Q2-czm"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="startAnimations" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Zwi-PQ-F72" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5ts-aV-mN0"/>
+                            <constraint firstItem="cKR-at-zYK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Nk-CO-BJA"/>
+                            <constraint firstItem="cKR-at-zYK" firstAttribute="top" secondItem="Gba-RM-JIC" secondAttribute="bottom" constant="-19" id="8fC-MN-PMp"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cKR-at-zYK" secondAttribute="bottom" id="D2K-qR-8zg"/>
+                            <constraint firstItem="Gba-RM-JIC" firstAttribute="top" secondItem="wVh-Tw-f2W" secondAttribute="bottom" id="Esr-4V-CWi"/>
+                            <constraint firstItem="wVh-Tw-f2W" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PC0-ax-jyo"/>
+                            <constraint firstItem="Zwi-PQ-F72" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="WS9-w6-KQ6"/>
+                            <constraint firstItem="Gba-RM-JIC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rg9-jQ-ohr"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="avatarImageView" destination="Tu5-A8-k9X" id="q9x-Qs-6Y2"/>
@@ -295,7 +317,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1907" y="-298"/>
+            <point key="canvasLocation" x="-2651" y="-143"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="iCb-db-gbL">
@@ -398,7 +420,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQj-Lk-aVc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-532" y="-298"/>
+            <point key="canvasLocation" x="-1517" y="-108"/>
         </scene>
     </scenes>
     <resources>
