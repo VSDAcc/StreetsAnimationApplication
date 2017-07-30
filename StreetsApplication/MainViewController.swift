@@ -10,8 +10,6 @@ import UIKit
 
 class MainViewController: UIViewController,UIGestureRecognizerDelegate {
     
-    
-    
     @IBOutlet weak var topBar: UIView!
     @IBOutlet weak var topBarImageView: UIImageView!
     @IBOutlet weak var bottomBar: UIView!
@@ -81,8 +79,7 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate {
         self.animator.removeBehavior(self.userViewItemBehavior)
         self.animator.removeBehavior(self.snapBehaviorDialogView)
         self.refreshCountImage()
-}
-    
+    }
     func addAnimationToAnimatableObject(animateView:Animatable, nameAnimation:AnimationType.RawValue,curveAnimation:AnimationCurveType.RawValue, damping:CGFloat,duration:CGFloat,force:CGFloat,delay:CGFloat) {
         let view = animateView
         view.nameAnimations = nameAnimation
@@ -107,7 +104,6 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate {
         maskButton.alpha = alpha
         maskButton.animateObject()
     }
-
     @IBAction func actionDialogViewPanGestureRecognizer(_ sender: UIPanGestureRecognizer) {
         let tempDialogView = dialogView
         let location = sender.location(in: view)
@@ -159,7 +155,6 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate {
         avatarImageView.layer.cornerRadius = avatarImageView.bounds.width / 2
         avatarImageView.layoutIfNeeded()
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         animator = UIDynamicAnimator(referenceView: view)
@@ -170,14 +165,12 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate {
         collisionBahavior = self.addCollisionBahavior(itemsArray:[userView,dialogView])
         userViewItemBehavior = self.addUserViewItemBehavior(itemsArray:[userView,dialogView])
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return.lightContent
     }
-    
 //MARK: -Helped Methods
     func addCollisionBahavior(itemsArray:Array<UIDynamicItem>) -> UICollisionBehavior {
        let collisionBahavior = UICollisionBehavior(items: itemsArray)
@@ -203,7 +196,6 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate {
         view.insertSubview(visualEffectView, at: 0)
         self.visualEffectView = visualEffectView
     }
-    
     func addAnimationToObject(view:Animatable, duration:CFTimeInterval, delay:Float, options:AnimationCurveType.RawValue,scaleX:CGFloat,scaleY:CGFloat) {
         let homeView = AnimationObject(view)
         let optionConfig = homeView.animateCurveViewOptions(animationCurve: options)
@@ -215,8 +207,7 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate {
                        animations: { () -> Void in
                     view.transform = CGAffineTransform(scaleX: scaleX, y: scaleY)
         }, completion: nil )
-    }
-    
+    }   
     func changeBackgroundImageView()  {
         self.view.alpha = 0.5
         
@@ -261,7 +252,6 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate {
             }
         }
     }
-
     func refreshCountImage() {
         if self.countImage > 2 {
             self.countImage = 0
